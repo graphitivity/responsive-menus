@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="_assets/css/reset.css" rel="stylesheet">
+    <link href="_assets/css/demo/demo-styles.css" rel="stylesheet">
+    <link href="_assets/css/demo/base.css" rel="stylesheet">
+    <link href="_assets/css/demo/highlight.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title> Instant Responsive Menus</title>
+    <script src="_assets/js/modernizr.js"></script>
+    <script src="_assets/js/demo/highlight.pack.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body class="demo">
+
+    <section id="section-documentation" class="full-height grey-300">
+        <div class="content-wrap boxed">  
+
+        <h1 class=""> DOCUMENTATION &amp; DEMOS </h1>
+                <h5 class=""> Instant Responsive Menus </h5>               
+                <p>Instant Responsive Menus is designed to quickly setup different type of menus without changing the HTML markup. YES! change menu styles on the fly from horizontal to vertical to toggle menu to slide menu to fullscreen menu to a onepage scroll to dots navigation and more... all without chainging HTML markup </p>
+
+                <h4>How to use Instant Responsive Menus? </h4> 
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLGIyyfQtVRQ4ccWdNOEvzpXb9vODOlEdZ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+
+<!-- Setup -->
+                <h6>Setup</h6>
+                <p><strong>Step:1</strong> Link the main CSS/Js files to your html page.<br>
+                </p>
+
+                <pre>
+                    <code class="html">
+                    
+    &lt;link href=&quot;css/irm.css&quot; rel=&quot;stylesheet&quot;&gt;<br />
+    &lt;script src=&quot;js/irm.js&quot;&gt;&lt;/script&gt;   
+
+                    </code>
+                </pre>
+                 <p><strong>Step:2</strong> Link the dependency files such as font awesome icons, jQuery, Modernizr and reset.css to your html page. Font awesome is not always required unless you are using icons. Place the script files at the bottom except modernizr.</p>
+                <pre> 
+                    <code class="html">
+
+    &lt;link href=&quot;css/reset.css&quot; rel=&quot;stylesheet&quot;&gt;<br />
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/font-awesome.min.css&quot;&gt;<br /><br />
+    &lt;script src=&quot;js/modernizr.js&quot;&gt;&lt;/script&gt;<br />
+    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+                    </code>
+                </pre>
+
+<!-- End Setup -->
+<!-- Fonlder Structure  -->
+    
+                <h6>CSS </h6>
+                <p>Instant Responsive Menus is primarily built with SASS but you also get a compiled CSS file.</p>
+                    
+                <h6>SASS Folders </h6>
+                <br>
+                    <ul class="list li-vertical list-style-1">
+                        <li>animations</li>
+                        <li>config</li>
+                        <li>custom-menus</li>
+                        <li>demo</li>
+                        <li>headers</li>
+                        <li>helpers</li>
+                        <li>menus</li>
+                        <li>modules</li>
+                        <li>styles</li>
+                    </ul>              
+                <br>
+                <h6 classs="points">animations</h6>
+                <p>This folder consist of basic default animations that you can add to submenu or menu wrap</p>
+
+                <h6 classs="points">config</h6>
+                <p>Config folder consist of all configurable files where you can change variable values for menu styles, breakpoints, colors, typography and icons.</p>
+
+                <h6 classs="points">custom-menus</h6>
+                <p>themes folder consist styles required to make usnique styled menus like the responsive tabs menu.</p>
+
+                <h6 classs="points">demo</h6>
+                <p>This folder consist of basic default styles that is required for the presentation purpose.</p>
+
+                <h6 classs="points">headers</h6>
+                <p>headers folder consist styles required to make a simple header.</p>
+
+                <h6 classs="points">helpers</h6>
+                <p>this folder has helper files such as clearfix, list structure, media query etc.</p>
+
+                <h6 classs="points">menus</h6>
+                <p>menu folder has crucial sass files that make the bare bone structure of the menu.</p>
+
+                <h6 classs="points">modules</h6>
+                <p>modules has modules or widgets such as buttons and social media icons.</p>
+
+                <h6 classs="points">styles</h6>
+                <p>styles folder consist of customizable style files. By adding your own or update the existing styles you can easily change the menu look and feel.</p>
+
+                
+                <p>NOTE: irm.scss imports all the sass files.</p>
+<!-- END Fonlder Structure  -->
+
+<!-- Menu Structure  -->
+                <h4>Understanding the menu structure.</h4>
+                <br>
+                <ul class="list li-vertical list-style-1">
+                    <li>menu items or menu links are made up of basic ul li lists. </li>
+                    <li>.menu-wrap wraps the list items.</li>
+                    <li>.toggle-btn open and close the menu when required.</li>
+                    <li>nav  contains .menu-wrap and .toggle-btn </li>
+                </ul>
+
+                <p><img src="_assets/_img/docs/menu-structure-dark.png" alt=""></p>
+                <p>
+                <pre>
+                <code class="html">
+
+    &lt;nav class=&quot;irm&quot;&gt;                <br />
+        &lt;a class=&quot;toggle-btn&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;<br />
+        &lt;div class=&quot;menu-wrap&quot;&gt;<br />
+            &lt;ul class=&quot;list&quot;&gt;<br />
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt; List items &lt;/a&gt;<br />
+            . . .<br />
+            . . .<br />
+            . . . 
+                </code></pre>
+                </p>
+                
+<!-- END Menu Structure  -->
+
+<!-- List Structure  -->
+             <h4>List structure.</h4>
+             <p>The structure of the UL can be changed on the fly from vertical, horizontal, center, justified, breadcrumbs or a responsive list by changing the CSS classes of the unordered list. </p>
+
+            <p>For example adding modifier classes .li-horizontal or .li-vertical to ul.list will make it horizontal or vertical similarly .li-responsive class makes the list responsive and li-split will split the menu to the width of the logo which has a class of .brand to it. </p>
+
+            <p>These classes can be applyed to multiple ul’s on the page. Example the ul list in the main menu can have <strong>.li-horizontal</strong> class applied to it while the ul list in the sidebar can have <strong>.li-breadcrumbs</strong> or <strong>.li-vertical </strong> applied to it. </p>
+            <ul class="list li-vertical list-style-1">
+                <li>.list .li-horizontal</li>
+                <li>.list .li-vertical</li>
+                <li>.list .li-center</li>
+                <li>.list .li-justified</li>
+                <li>.list .li-breadcrumbs</li>
+            </ul>
+
+            <p>In combination with the above classes use the below classes to modify it further.</p>
+            <ul class="list li-vertical list-style-1">
+                <li>.list .li-responsive</li>
+                <li>.list .li-split</li>
+            </ul>
+
+            <!-- Horizontal List -->
+
+        <h6>Horizontal List</h6>
+        <p>Add class <strong>.li-horizontal</strong> to any <strong>ul.list </strong> to make it horizontal list </p>
+         <ul class="list li-horizontal ls-light">
+            <li><a href="">Examples</a></li>
+            <li><a href="">How to use</a></li>
+            <li><a href="">Get help</a></li>
+            <li><a href="">Download</a></li>
+        </ul>
+        <pre>
+            <code class="html">
+    ul.list li-horizontal
+        li ... 
+        li ... 
+    /ul
+            </code>
+        </pre>
+
+<!-- Vertical List -->
+
+        <h6>Vertical List</h6>
+        <p>Add class <strong>.li-vertical</strong> to any <strong>ul.list</strong> to make a vertical list </p>
+         <ul class="list li-vertical ls-light">
+            <li><a href="">Examples</a></li>
+            <li><a href="">How to use</a></li>
+            <li><a href="">Get help</a></li>
+            <li><a href="">Download</a></li>
+        </ul>
+        <pre>
+            <code class="html">
+    ul.list li-vertical
+        li ... 
+        li ... 
+    /ul
+            </code>
+        </pre>
+
+<!-- Center List -->
+
+        <h6>Center List</h6>
+        <p>Add class <strong>.li-center</strong> to any <strong>ul.list</strong> to create a center aligned list. </p>
+         <ul class="list li-center ls-light">
+            <li><a href="">Demo</a></li>
+            <li><a href="">Usage</a></li>
+            <li><a href="">Help</a></li>
+            <li><a href="">Get it</a></li>
+        </ul>
+        <pre>
+            <code class="html">
+    ul.list li-center
+        li ... 
+        li ... 
+    /ul
+            </code>
+        </pre>
+
+<!-- justifiedspace List -->
+
+        <h6>Justified</h6>
+        <p>Add class <strong>.list .li-justified</strong> to any <strong>ul</strong> to make it justified list as shown below. </p>
+         <ul class="list li-justified ls-light">
+            <li><a href="">Demo</a></li>
+            <li><a href="">Usage</a></li>
+            <li><a href="">Help</a></li>
+            <li><a href="">Get it</a></li>
+        </ul>
+        <pre>
+            <code class="html">
+    ul.list li-justified
+        li ... 
+        li ... 
+    /ul
+            </code>
+        </pre>
+
+<!-- breadcrumbs List -->
+
+        <h6>Breadcrumbs List</h6>
+        <p>Add class <strong>.li-breadcrumbs</strong> to any <strong>ul.list</strong> to make it breadcrumbs menu</p>
+         <ul class="list li-breadcrumbs ">
+            <li><a href="">Examples</a></li>
+            <li><a href="">How to use</a></li>
+            <li><a href="">Get help</a></li>
+            <li><a href="">Download</a></li>
+        </ul>
+        <pre>
+            <code class="html">
+    ul.list li-breadcrumbs
+        li ... 
+        li ... 
+    /ul
+            </code>
+        </pre>
+
+
+<!-- responsive List -->
+
+
+        <br>
+        <p>NOTE: Use the class li-responsive with any of the above horizontal list to make it vertical in tablet. The .li-split class (works best with li-center and li-justified) this class splits the menu in the middle and adds extra space for a centered logo. logo should have the class .brand for it to work.</p>
+
+
+        <h6>Responsive List</h6>
+        <p>Add class <strong>.li-responsive</strong> to any <strong>ul.list</strong> to make it responsive menu</p> 
+        <p><a target="_blank" href="demo\01-basic\15-unlimited-responsive-submenu.html">view demo</a></p>
+        <pre>
+            <code class="html">
+    ul.list li-center li-responsive
+        li ... 
+        li ... 
+    /ul
+            </code>
+        </pre>
+
+    <h6>Split List</h6>
+        <p>Add class <strong>.li-split</strong> to make a split menu. The logo should be centered with class .brand for .li-split class to work correctly.</p>
+        <p><a target="_blank" href="demo/01-basic/10-justified-split.html">view demo</a></p>
+        <pre>
+            <code class="html">
+    ul.list li-horizontal li-responsive
+        li ... 
+        li ... 
+    /ul
+            </code>
+        </pre>
+
+<!-- END of List Structure -->
+<!--  Styling menu items -->
+        <h6>Styling the menu items </h6>
+
+        <p>Once you have structured the list items, menu links can be easily styles by adding a class that specifically styles only the links. please see _assets\_sass\styles\link-style.scss for available link styles or add your own. </p>
+<!-- END of styling menu items -->
+
+
+        <h3>Menu Structure HTML markup</h3>
+
+<pre>
+    <code class="html">
+
+&lt;!-- menu --&gt;<br />
+            &lt;nav role=&quot;navigation&quot; class=&quot;irm&quot;&gt;<br />
+                &lt;a class=&quot;toggle-btn hamburger&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;<br />
+                &lt;div class=&quot;menu-wrap&quot;&gt;<br />
+&lt;!-- list --&gt;<br />
+                    &lt;ul class=&quot;list li-breadcrumbs link-style-1&quot;&gt;<br />
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt; Menu Link &lt;/a&gt;&lt;/li&gt;<br />
+                        . . . <br>
+                        . . . <br>
+                        . . . <br>
+                   &lt;/ul&gt;<br />
+&lt;!-- /end list --&gt;<br />
+                &lt;/div&gt;<br />
+            &lt;/nav&gt;<br />
+&lt;!-- /end menu --&gt;
+
+    </code>
+</pre>
+
+        <h6>CSS Classes </h6>
+        <p>Change menus on the fly by applying any of the below classes to nav.irm in combination with ul.list as shown previously</p>
+        <!-- <p> Add any of the below toggle menu classes to nav.irm</p> -->
+            <ul class="list li-vertical list-style-1">
+                <li class="lable"> Toggle Dropdown </li>
+                <li>.toggle .dropdown .top-left</li>
+                <li>.toggle .dropdown .top-right</li>
+                <li>.toggle .dropdown .top-center</li>
+                <li class="lable"> Toggle Upwards</li>
+                <li>.toggle .upward .bottom-right</li>
+                <li>.toggle .upward .bottom-left</li>
+                <li>.toggle .upward .bottom-center</li>    
+            </ul>
+                
+
+<!-- <p> Add any of the below slide menu classes to nav.irm</p> -->
+
+        <ul class="list li-vertical list-style-1">
+            <li class="lable"> Slide menu with auto width </li>
+            <li>.slide .from-top</li>
+            <li>.slide .from-right</li>
+            <li>.slide .from-bottom</li>
+            <li>.slide .from-left</li>
+            <li class="lable"> fade menu with auto width </li>
+            <li>.slide .fade .from-top</li>
+            <li>.slide .fade .from-right</li>
+            <li>.slide .fade .from-bottom</li>
+            <li>.slide .fade .from-left</li>
+            <li class="lable"> Slide fullscreen  menu with auto width </li>
+            <li>.slide .fullscreen .from-top</li>
+            <li>.slide .fullscreen .from-right</li>
+            <li>.slide .fullscreen .from-bottom</li>
+            <li>.slide .fullscreen .from-left</li>
+            <li>.slide .fade .fullscreen </li>
+        </ul>
+
+<p>To change the menu structure in tablets use the below classes in combination with the above mentioned classes.</p>
+<p>
+For example a horizontal menu can be easily collapsed in tablet by using 
+nav.irm .toggle-in-tablet .dropdown .top-left
+</p>
+<p>NOTE: The ul.list is unaffected by the nav.irm  classes to make ul.list .li-horizontal responsive or vertical in tablet add class .li-responsive
+</p>
+
+<p>Code Sample:</p>
+<pre>
+    <code class="html">
+
+&lt;!-- menu --&gt;<br />
+            &lt;nav role=&quot;navigation&quot; class=&quot;irm toggle-menu dropdown top-right&quot;&gt;<br />
+                &lt;a class=&quot;toggle-btn hamburger&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;<br />
+                &lt;div class=&quot;menu-wrap&quot;&gt;<br />
+&lt;!-- list --&gt;<br />
+                    &lt;ul class=&quot;list li-vertical link-style-1&quot;&gt;<br />
+                        &lt;li&gt;&lt;a href=&quot;#section-1&quot;&gt;Demos&lt;/a&gt;&lt;/li&gt;<br />
+                        &lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;Features&lt;/a&gt;&lt;/li&gt;<br />
+                        &lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;Usage&lt;/a&gt;&lt;/li&gt;<br />
+                        &lt;li&gt;&lt;a href=&quot;#section-4&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;<br />
+                   &lt;/ul&gt;<br />
+&lt;!-- /end list --&gt;<br />
+                &lt;/div&gt;<br />
+            &lt;/nav&gt;<br />
+&lt;!-- /end menu --&gt;
+        
+    </code>
+</pre>
+
+
+<p> To collapse a horizontal menu and toggle it or slide it in screens less than tablets simply add "-in-tablet" to .toggle or .slide classes as shown below.</p>
+        <ul class="list li-vertical list-style-1">
+            <li class="lable"> Toggle Dropdown </li>
+            <li>.toggle-in-tablet .dropdown .top-left</li>
+            <li>.toggle-in-tablet .dropdown .top-right</li>
+            <li>.toggle-in-tablet .dropdown .top-center</li>
+            <li class="lable"> Toggle Upwards</li>
+            <li>.toggle-in-tablet .upward .bottom-right</li>
+            <li>.toggle-in-tablet .upward .bottom-left</li>
+            <li>.toggle-in-tablet .upward .bottom-center</li>    
+        </ul>
+
+        <ul class="list li-vertical list-style-1">
+            <li class="lable"> Slide menu with auto width </li>
+            <li>.slide-in-tablet .from-top</li>
+            <li>.slide-in-tablet .from-right</li>
+            <li>.slide-in-tablet .from-bottom</li>
+            <li>.slide-in-tablet .from-left</li>
+            <li class="lable"> fade menu with auto width </li>
+            <li>.slide-in-tablet .fade .from-top</li>
+            <li>.slide-in-tablet .fade .from-right</li>
+            <li>.slide-in-tablet .fade .from-bottom</li>
+            <li>.slide-in-tablet .fade .from-left</li>
+            <li class="lable"> Fullscreen menu with auto width </li>
+            <li>.slide-in-tablet .fullscreen .from-top</li>
+            <li>.slide-in-tablet .fullscreen .from-right</li>
+            <li>.slide-in-tablet .fullscreen .from-bottom</li>
+            <li>.slide-in-tablet .fullscreen .from-left</li>
+            <li>.slide-in-tablet .fade .fullscreen </li>
+        </ul>
+
+
+
+
+
+
+<div class="pad-tb2"></div>
+
+<p>That's it we are all set now! Just copy and paste one of the HTML menu markup and customize or build upon it. </p>
+
+
+<h6>demos:</h6>
+
+
+<div class=" list-style-1">
+                <!-- <h2>Menu List</h2>             -->
+                <br>
+                <ul class="list li-vertical">
+                    <li class="list-title">Basic menus</li>
+                    <li><a target="_blank" href="demo\01-basic\01-horizontal.html">Horizontal menu</a></li>
+                    <li><a target="_blank" href="demo\01-basic\02-vertical.html">Vertical menu</a></li>
+                    <li><a target="_blank" href="demo\01-basic\03-center.html">Center aligned menu </a></li>
+                    <li><a target="_blank" href="demo\01-basic\04-justified.html">justified menu </a></li>
+                    <li><a target="_blank" href="demo\01-basic\05-breadcrumbs.html">Breadcrumbs </a></li>
+                    <li><a target="_blank" href="demo\01-basic\06-horizontal-responsive.html">Horizontal responsive menu </a></li>
+                    <li><a target="_blank" href="demo\01-basic\07-center-responsive.html">Center responsive menu </a></li>
+                    <li><a target="_blank" href="demo\01-basic\08-justified-responsive.html">justified responsive menu </a></li>
+                    <li><a target="_blank" href="demo\01-basic\09-center-split.html">Split menu center (assumes logo is centered) and adds a gap automatically to fit the logo with class .brand in the center of the menu.</a></li>
+                    <li><a target="_blank" href="demo\01-basic\10-justified-split.html">Split menu justified space (assumes logo is centered) and adds a gap automatically to fit the logo with class .brand in the center of the menu.</a> </li>
+                    <li><a target="_blank" href="demo\01-basic\11-dots-vertical.html">Dots navigation (vertical) </a></li>
+                    <li><a target="_blank" href="demo\01-basic\12-dots-horizontal.html">Dots navigation (Horizontal) </a></li>
+                    <li><a target="_blank" href="demo\01-basic\13-unlimited-horizontal-submenu.html">Unlimited horizontal submenu </a></li>
+                    <li><a target="_blank" href="demo\01-basic\14-unlimited-vertical-submenu.html">Unlimited Vertical submenu </a></li>
+                    <li><a target="_blank" href="demo\01-basic\15-unlimited-responsive-submenu.html">Unlimited Responsive submenu </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Toggle menus (Horizontal)</li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\01-horizontal\01-top-left.html">Toggle dropdown on top left </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\01-horizontal\02-top-center.html">Toggle dropdown on top center </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\01-horizontal\03-top-right.html">Toggle dropdown on top right </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\01-horizontal\04-bottom-left.html">Toggle upward on bottom left </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\01-horizontal\05-bottom-center.html">Toggle upward on bottom center </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\01-horizontal\06-bottom-right.html">Toggle upward on bottom right </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Toggle menus (Vertical)</li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\02-vertical\01-top-left.html">Toggle dropdown on top left </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\02-vertical\02-top-center.html">Toggle dropdown on top center </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\02-vertical\03-top-right.html">Toggle dropdown on top right </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\02-vertical\04-bottom-left.html">Toggle upward on bottom left </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\02-vertical\05-bottom-center.html">Toggle upward on bottom center </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\02-vertical\06-bottom-right.html">Toggle upward on bottom right </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Toggle menus (Responsive)</li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\03-responsive\01-top-left.html">Toggle dropdown on top left </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\03-responsive\02-top-center.html">Toggle dropdown on top center </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\03-responsive\03-top-right.html">Toggle dropdown on top right </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\03-responsive\04-bottom-left.html">Toggle upward on bottom left </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\03-responsive\05-bottom-center.html">Toggle upward on bottom center </a></li>
+                    <li><a target="_blank" href="demo\02-toggle-menu\03-responsive\06-bottom-right.html">Toggle upward on bottom right </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Slide menus (Horizontal)</li>
+                    <li><a target="_blank" href="demo\03-slide-menu\01-horizontal\01-top.html">Slide in from top </a></li>
+                    <li><a target="_blank" href="demo\03-slide-menu\01-horizontal\02-right.html">Slide in from right </a></li>
+                    <li><a target="_blank" href="demo\03-slide-menu\01-horizontal\03-bottom.html">Slide in from bottom </a></li>
+                    <li><a target="_blank" href="demo\03-slide-menu\01-horizontal\04-left.html">Slide in from left </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Slide menus (Vertical)</li>
+                    <li><a target="_blank" href="demo\03-slide-menu\02-vertical\01-top.html">Slide in from top </a></li>
+                    <li><a target="_blank" href="demo\03-slide-menu\02-vertical\02-right.html">Slide in from right </a></li>
+                    <li><a target="_blank" href="demo\03-slide-menu\02-vertical\03-bottom.html">Slide in from bottom </a></li>
+                    <li><a target="_blank" href="demo\03-slide-menu\02-vertical\04-left.html">Slide in from left </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Slide menus (Responsive)</li>
+                    <li><a target="_blank" href="demo\03-slide-menu\03-responsive\01-top.html">Slide in from top </a></li>
+                    <li><a target="_blank" href="demo\03-slide-menu\03-responsive\02-right.html">Slide in from right </a></li>
+                    <li><a target="_blank" href="demo\03-slide-menu\03-responsive\03-bottom.html">Slide in from bottom </a></li>
+                    <li><a target="_blank" href="demo\03-slide-menu\03-responsive\04-left.html">Slide in from left </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title"> Fullscreen Slide menus (Horizontal)</li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\01-horizontal\01-top.html">Slide fullscreen from top </a></li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\01-horizontal\02-right.html">Slide fullscreen from right </a></li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\01-horizontal\03-bottom.html">Slide fullscreen from bottom </a></li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\01-horizontal\04-left.html">Slide fullscreen from left </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title"> Fullscreen Slide menus (Vertical)</li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\02-vertical\01-top.html">Slide fullscreen from top </a></li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\02-vertical\02-right.html">Slide fullscreen from right </a></li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\02-vertical\03-bottom.html">Slide fullscreen from bottom </a></li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\02-vertical\04-left.html">Slide fullscreen from left </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title"> Fullscreen Slide menus (Responsive)</li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\03-responsive\01-top.html">Slide fullscreen from top </a></li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\03-responsive\02-right.html">Slide fullscreen from right </a></li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\03-responsive\03-bottom.html">Slide fullscreen from bottom </a></li>
+                    <li><a target="_blank" href="demo\04-fullscreen-slide-menu\03-responsive\04-left.html">Slide fullscreen from left </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Fullscreen Fade menus</li>
+                    <li><a target="_blank" href="demo\05-fullscreen-Fade-menu\01-fade-horizontal.html">Fade in fullscreen (horizontal) </a></li>
+                    <li><a target="_blank" href="demo\05-fullscreen-Fade-menu\02-fade-vertical.html">Fade in fullscreen (vertical) </a></li>
+                    <li><a target="_blank" href="demo\05-fullscreen-Fade-menu\03-fade-center.html">Fade in fullscreen (center) </a></li>
+                    <li><a target="_blank" href="demo\05-fullscreen-Fade-menu\04-fade-justified.html">Fade in fullscreen (justified) </a></li>
+                    <li><a target="_blank" href="demo\05-fullscreen-Fade-menu\05-fade-responsive.html">Fade in/out fullscreen (Responsive) </a></li>
+                </ul>
+
+
+                <ul class="list li-vertical">
+                    <li class="list-title">Toggle menu in tablet (Horizontal)</li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\01-horizontal\01-top-left.html">Collapse a horizontal menu to toggle dropdown on top left in tablet </a></li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\01-horizontal\02-top-center.html">Collapse a horizontal menu to toggle dropdown on top center in tablet </a></li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\01-horizontal\03-top-right.html">Collapse a horizontal menu to toggle dropdown on top right in tablet </a></li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\01-horizontal\04-bottom-left.html">Collapse a horizontal menu to toggle upward on bottom left in tablet </a></li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\01-horizontal\05-bottom-center.html">Collapse a horizontal menu to toggle upward on bottom center in tablet </a></li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\01-horizontal\06-bottom-right.html">Collapse a horizontal menu to toggle upward on bottom right in tablet </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Toggle menu in tablet (Vertical)</li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\02-vertical\01-top-left.html">Collapse a horizontal menu to toggle dropdown on top left in tablet </a></li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\02-vertical\02-top-center.html">Collapse a horizontal menu to toggle dropdown on top center in tablet </a></li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\02-vertical\03-top-right.html">Collapse a horizontal menu to toggle dropdown on top right in tablet </a></li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\02-vertical\04-bottom-left.html">Collapse a horizontal menu to toggle upward on bottom left in tablet </a></li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\02-vertical\05-bottom-center.html">Collapse a horizontal menu to toggle upward on bottom center in tablet </a></li>
+                    <li><a target="_blank" href="demo\06-Toggle-menu-in-tablet\02-vertical\06-bottom-right.html">Collapse a horizontal menu to toggle upward on bottom right in tablet </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Slide menus in tablet (horizontal)</li>
+                    <li><a target="_blank" href="demo\07-slide-menu-in-tablet\01-horizontal\01-top.html">Collapse a horizontal menu to slide in from top in tablet </a></li>
+                    <li><a target="_blank" href="demo\07-slide-menu-in-tablet\01-horizontal\02-right.html">Collapse a horizontal menu to slide in from right in tablet </a></li>
+                    <li><a target="_blank" href="demo\07-slide-menu-in-tablet\01-horizontal\03-bottom.html">Collapse a horizontal menu to slide in from bottom in tablet </a></li>
+                    <li><a target="_blank" href="demo\07-slide-menu-in-tablet\01-horizontal\04-left.html">Collapse a horizontal menu to slide in from left in tablet </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Slide menus in tablet (Vertical)</li>
+                    <li><a target="_blank" href="demo\07-slide-menu-in-tablet\02-vertical\01-top.html">Collapse a horizontal menu to slide fullscreen from top in tablet </a></li>
+                    <li><a target="_blank" href="demo\07-slide-menu-in-tablet\02-vertical\02-right.html">Collapse a horizontal menu to slide fullscreen from right in tablet </a></li>
+                    <li><a target="_blank" href="demo\07-slide-menu-in-tablet\02-vertical\03-bottom.html">Collapse a horizontal menu to slide fullscreen from bottom in tablet </a></li>
+                    <li><a target="_blank" href="demo\07-slide-menu-in-tablet\02-vertical\04-left.html">Collapse a horizontal menu to slide fullscreen from left in tablet </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Fullscreen slide menus in tablet (horizontal)</li>
+                    <li><a target="_blank" href="demo\08-fullscreen-slide-in-tablet\01-horizontal\01-top.html">Collapse a horizontal menu to slide fullscreen from top in tablet </a></li>
+                    <li><a target="_blank" href="demo\08-fullscreen-slide-in-tablet\01-horizontal\02-right.html">Collapse a horizontal menu to slide fullscreen from right in tablet </a></li>
+                    <li><a target="_blank" href="demo\08-fullscreen-slide-in-tablet\01-horizontal\03-bottom.html">Collapse a horizontal menu to slide fullscreen from bottom in tablet </a></li>
+                    <li><a target="_blank" href="demo\08-fullscreen-slide-in-tablet\01-horizontal\04-left.html">Collapse a horizontal menu to slide fullscreen from left in tablet </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Fullscreen slide menus in tablet (vertical)</li>
+                    <li><a target="_blank" href="demo\08-fullscreen-slide-in-tablet\02-vertical\01-top.html">Collapse a horizontal menu to slide fullscreen from top in tablet </a></li>
+                    <li><a target="_blank" href="demo\08-fullscreen-slide-in-tablet\02-vertical\02-right.html">Collapse a horizontal menu to slide fullscreen from right in tablet </a></li>
+                    <li><a target="_blank" href="demo\08-fullscreen-slide-in-tablet\02-vertical\03-bottom.html">Collapse a horizontal menu to slide fullscreen from bottom in tablet </a></li>
+                    <li><a target="_blank" href="demo\08-fullscreen-slide-in-tablet\02-vertical\04-left.html">Collapse a horizontal menu to slide fullscreen from left in tablet </a></li>
+                </ul>
+                <ul class="list li-vertical">
+                    <li class="list-title">Fade Fullscreen menu in tablet</li>
+                    <li><a target="_blank" href="demo\09-fullscreen-Fade-in-tablet\01-fade-horizontal.html">Collapse a horizontal menu to fade in as a fullscreen (horizontal) in tablet </a></li>
+                    <li><a target="_blank" href="demo\09-fullscreen-Fade-in-tablet\02-fade-vertical.html">Collapse a horizontal menu to fade in as a fullscreen (vertical) in tablet </a></li>
+                    <li><a target="_blank" href="demo\09-fullscreen-Fade-in-tablet\03-fade-center.html">Collapse a horizontal menu to fade in as a fullscreen (center) in tablet </a></li>
+                    <li><a target="_blank" href="demo\09-fullscreen-Fade-in-tablet\04-fade-justified.html">Collapse a horizontal menu to fade in as a fullscreen (justified) in tablet </a></li>
+                    <li><a target="_blank" href="demo\09-fullscreen-Fade-in-tablet\05-fade-responsive.html">Collapse a horizontal menu to fade in as a fullscreen (Responsive) in tablet </a></li>
+                </ul>
+                 <ul class="list li-vertical">
+                    <li class="list-title">Custom themed menu</li>
+                    <li><a target="_blank" href="demo\10-themes\01-tabs.html">Tabbed menu </a></li>
+                    <li><a target="_blank" href="demo\10-themes\02-icon-menu.html">Icon Menu </a></li>
+                </ul>
+                <p class="small">The end.</p>
+            </div>
+
+
+
+
+
+        </div>
+    </section>
+
+    <!-- custome jQuery -->
+    <script src="_assets/js/jquery.min.js"></script>
+    <script src="_assets/js/demo/demo.js"></script>
+</body>
+
+</html>
